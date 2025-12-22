@@ -1,0 +1,191 @@
+:root {
+	--hue: 160;
+	--saturation: 50%;
+	--brightness: 75%;
+	--background-color: hsl(var(--hue), var(--saturation), 70%);
+	--background-color-hover: hsl(var(--hue), var(--saturation), 75%);
+	--background-color-click: hsl(var(--hue), var(--saturation), 68%);
+	--accent-color: hsl(var(--hue), var(--saturation), 40%);
+	--text-color: hsl(var(--hue), var(--saturation), 20%);
+	--button-text: #ffffff;
+}
+
+button {
+	user-select: none;
+}
+#install-btn {
+	position: absolute;
+	bottom: 10px;
+	width: fit-content;
+	padding: 6px 15px;
+	font-size: 14px;
+	font-weight: 900;
+	background-color: transparent;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+svg {
+	stroke: var(--accent-color);
+	background-color: var(--background-color);
+}
+body {
+	margin: 0;
+	background-color: var(--background-color);
+	user-select: none;
+}
+
+.board {
+	width: 100svw;
+	height: 100svh;
+	display: grid;
+	place-items: center;
+}
+
+.roll {
+	position: absolute;
+	top: 10px;
+	width: fit-content;
+	padding: 6px 15px;
+	font-size: 14px;
+	font-weight: 900;
+	background-color: var(--accent-color);
+	color: white;
+	border: 2px solid white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.roll:hover {
+	opacity: 0.8;
+}
+
+.roll:active {
+	border-color: black;
+	color: black;
+}
+
+.cell {
+	border-width: 4px;
+	border-color: var(--accent-color);
+	position: relative;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	color: var(--accent-color);
+	background-color: var(--background-color);
+}
+
+.cell.x,
+.cell.o {
+	cursor: not-allowed;
+}
+
+.cell.x::after,
+table.x .cell:not(.x):not(.o):hover::after {
+	content: "\00D7";
+	display: grid;
+	place-items: center;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	box-sizing: border-box;
+	font-size: 180px;
+	font-weight: 900;
+	opacity: 0.2;
+	overflow: hidden;
+}
+
+.cell.o::after,
+table.o .cell:not(.o):not(.x):hover::after {
+	content: "";
+	display: grid;
+	justify-content: center;
+	place-items: center;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	outline: 12px solid currentColor;
+	outline-offset: -18px;
+	box-sizing: border-box;
+	opacity: 0.2;
+	overflow: hidden;
+}
+
+.cell.x::after,
+.cell.o::after {
+	opacity: 1;
+}
+
+#dialog {
+	font-size: xx-large;
+	border: none;
+	border-radius: 4px;
+	padding: 0.5rem 1rem;
+	background-color: var(--background-color);
+}
+
+form {
+	display: grid;
+	place-items: center;
+}
+
+form > * {
+	-webkit-margin-collapse: collapse;
+}
+
+form div {
+	color: var(--text-color);
+	font-family: sans-serif;
+	font-weight: 900;
+}
+
+form button {
+	width: 100%;
+	height: 40px;
+	margin: 10px 10px 6px 10px;
+	font-size: x-large;
+	font-weight: 900;
+	color: hsl(0, 0%, 100%);
+	background-color: var(--accent-color);
+	border: none;
+	border-radius: 4px;
+	outline-color: var(--accent-color);
+}
+
+::backdrop {
+	background-color: hsla(0, 0%, 0%, 0.4);
+	backdrop-filter: blur(1vmin);
+}
+
+#random-number-board {
+	display: none;
+	place-items: center;
+	position: fixed;
+	width: 100svw;
+	height: 100svh;
+	background-color: hsla(0, 0%, 0%, 0.4);
+	backdrop-filter: blur(0.4vmin);
+}
+
+.random-number-btn {
+	width: 200px;
+	height: 200px;
+	font-size: 100px;
+	border: 2px solid var(--accent-color);
+	border-radius: 10px;
+	color: var(--accent-color);
+	background-color: var(--background-color);
+	cursor: pointer;
+}
+.random-number-btn:active {
+	scale: 0.995;
+	background-color: var(--background-color-click) !important;
+}
+.random-number-btn:hover {
+	background-color: var(--background-color-hover);
+}
+#random-number-board:has(.random-number-btn:focus) {
+	backdrop-filter: blur(2vmin);
+}

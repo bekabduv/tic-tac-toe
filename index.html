@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+            name="description"
+            content="A fun Tic Tac Toe game with random picking feature"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link
+            rel="icon"
+            href="./icons/32x32.png"
+            sizes="32x32"
+            type="image/png"
+        />
+        <link rel="manifest" href="./manifest.json" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./js/script.js" defer></script>
+        <title>Tic Tac Toe</title>
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Tic Tac Toe PWA" />
+        <meta
+            property="og:description"
+            content="A fun, installable Tic Tac Toe game with offline support and random picking feature."
+        />
+        <meta property="og:image" content="./icons/512x512.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://your-domain.com/tictactoe" />
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Tic Tac Toe PWA" />
+        <meta
+            name="twitter:description"
+            content="A fun, installable Tic Tac Toe game with offline support and random picking feature."
+        />
+        <meta name="twitter:image" content="./icons/512x512.png" />
+        <!-- Canonical -->
+        <link rel="canonical" href="https://your-domain.com/tictactoe" />
+        <!-- Author -->
+        <meta name="author" content="eugnitex" />
+    </head>
+    <body>
+        <button id="install-btn" style="display: none;">Install App</button>
+        <main class="board">
+            <button class="roll">Random Pick</button>
+            <table rules="all" id="table">
+                <tr>
+                    <td class="cell" id="1"></td>
+                    <td class="cell" id="2"></td>
+                    <td class="cell" id="3"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="4"></td>
+                    <td class="cell" id="5"></td>
+                    <td class="cell" id="6"></td>
+                </tr>
+                <tr>
+                    <td class="cell" id="7"></td>
+                    <td class="cell" id="8"></td>
+                    <td class="cell" id="9"></td>
+                </tr>
+            </table>
+            <dialog id="dialog">
+                <form method="dialog">
+                    <div class="winner-msg">X has won</div>
+                    <button class="restart-btn" type="submit">Restart</button>
+                </form>
+            </dialog>
+            <div id="random-number-board">
+                <button class="random-number-btn"></button>
+            </div>
+        </main>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("sw.js").catch(console.error)
+            }
+        </script>
+    </body>
+</html>
