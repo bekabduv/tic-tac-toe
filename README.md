@@ -31,7 +31,7 @@ A modern, accessible Progressive Web App implementation of the classic Tic Tac T
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/bekabduv/tic-tac-toe.git
 
 # Navigate to the project directory
 cd TicTacToe
